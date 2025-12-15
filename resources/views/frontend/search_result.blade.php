@@ -33,17 +33,40 @@
 </head>
 
 <body>
-  <header id="header" class="fixed-top bg-white shadow-sm">
-    <div class="container d-flex align-items-center justify-content-between py-2">
-      <a href="{{ url('/') }}" class="d-inline-flex align-items-center">
-        <img src="{{ asset('assets/images/logo-sintara-light.png') }}" alt="Logo Sintara" style="height:50px;">
+  <div id="topbar" class="d-none d-lg-flex align-items-center fixed-top">
+    <div class="container d-flex">
+      <div class="contact-info mr-auto">
+      </div>
+      <div class="social-links">
+      </div>
+    </div>
+  </div>
+      <div class="social-links">
+        <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
+        <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
+        <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
+        <a href="#" class="skype"><i class="icofont-skype"></i></a>
+        <a href="#" class="linkedin"><i class="icofont-linkedin"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+      <a href="{{ url('/') }}" class="logo mr-auto">
+        <img src="{{ asset('assets/images/logo-sintara-light.png') }}" alt="Logo Sintara" style="max-height:68px; width:auto;">
       </a>
+
       <nav class="nav-menu d-none d-lg-block">
         <ul>
           <li><a href="{{url('/')}}">Beranda</a></li>
           <li><a href="{{url('/')}}#procedures">Prosedur</a></li>
-          <li><a href="{{url('/')}}#services">Layanan</a></li>
+          <li><a href="{{url('/')}}#layanan">Layanan</a></li>
           <li class="active"><a href="{{url('track-complaint')}}">Lacak Pengaduan</a></li>
+          @if(Session::get('nik') == NULL)
+          <li><a href="{{url('user/login')}}">Masuk</a></li>
+          <li><a href="{{url('user/register')}}">Daftar</a></li>
+          @endif
         </ul>
       </nav>
     </div>
