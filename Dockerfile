@@ -2,7 +2,7 @@ FROM php:8.4-apache
 
 RUN apt-get update && apt-get install -y \
     libpng-dev libonig-dev libxml2-dev zip unzip libpq-dev curl \
-    && docker-php-ext-install pdo_pgsql mbstring exif pcntl bcmath gd opcache
+    && docker-php-ext-install pdo pdo_mysql mbstring exif pcntl bcmath gd opcache
 
 ENV APACHE_DOCUMENT_ROOT /var/www/html/public
 RUN sed -ri -e "s!/var/www/html!${APACHE_DOCUMENT_ROOT}!g" /etc/apache2/sites-available/*.conf
