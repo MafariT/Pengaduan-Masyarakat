@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Society;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use File;
 
 class SocietyController extends Controller
@@ -41,11 +41,10 @@ class SocietyController extends Controller
         $society->phone_number = $request->phone_number;
         $society->address = $request->address;
         $society->password = Hash::make($request->password);
-        $photo = $request->file('photo');
-        $tujuan_upload = 'avatar_society';
-        $photo_name = time() . "_" . $photo->getClientOriginalName();
-        $photo->move($tujuan_upload, $photo_name);
-        $society->photo = $photo_name;
+        if ($request->hasFile('photo')) {
+            $path = $request->file('photo')->store('avatar_society', 'public');
+            $society->photo = basename($path);
+        }
         $society->save();
         if ($request->submit == "more") {
             return redirect()->route('society.create')->with(['success' => 'Berhasil Disimpan !']);
@@ -86,13 +85,12 @@ class SocietyController extends Controller
         if ($request->get('password') != '') {
             $society->password = Hash::make($request->password);
         }
-        if ($request->file('photo') != '') {
-            File::delete('avatar_society/' . $society->photo);
-            $photo = $request->file('photo');
-            $tujuan_upload = 'avatar_society';
-            $photo_name = time() . "_" . $photo->getClientOriginalName();
-            $photo->move($tujuan_upload, $photo_name);
-            $society->photo = $photo_name;
+        if ($request->hasFile('photo')) {
+            if ($request->photo && Storage::disk('public')->exists('avatar/' . $request->photo)) {
+                Storage::disk('public')->delete('avatar_society/' . $request->photo);
+            }
+            $path = $request->file('photo')->store('avatar_society', 'public');
+            $request->photo = basename($path);
         }
         $result = $society->save();
         if ($result) {
