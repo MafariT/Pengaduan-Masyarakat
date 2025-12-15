@@ -17,8 +17,8 @@ class CreateResponseTable extends Migration
             $table->id();
             $table->unsignedBigInteger('complaint_id')->nullable();
             $table->foreign('complaint_id')->references('id')->on('complaint')->onDelete('cascade');
-            $table->date('response_date');
-            $table->text('response');
+            $table->date('response_date')->nullable();
+            $table->text('response')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

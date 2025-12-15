@@ -37,7 +37,7 @@
                         <div class="row">
                             <div class="col-sm-4">
                                 <div class="avatar-md profile-user-wid mb-4">
-                                    <img src="{{url('avatar_society/',Session::get('photo'))}}" alt="" class="img-thumbnail rounded-circle">
+                                    <img src="{{asset('storage/avatar_society',Session::get('photo'))}}" alt="" class="img-thumbnail rounded-circle">
                                 </div>
                                 <h5 class="font-size-15 text-truncate">{{Session::get('name')}}</h5>
                                 <p class="text-muted mb-0 text-truncate">Masyarakat</p>
@@ -48,13 +48,13 @@
 
                                     <div class="row">
                                         <div class="col-6">
-                                            
+
                                         </div>
                                         <div class="col-6">
-                                            
+
                                         </div>
                                     </div>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -85,6 +85,6 @@
                 </div>
             </div>
         </div>
-    </div> 
+    </div>
 </div>
 @endsection

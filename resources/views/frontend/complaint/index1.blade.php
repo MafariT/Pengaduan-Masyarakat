@@ -43,7 +43,7 @@
                                 @foreach ($complaint as $row)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td><img src="{{ url('avatar_complaint/', $row->photo) }}" width="120px"></td>
+                                        <td><img src="{{ asset('storage/avatar_complaint', $row->photo) }}" width="120px"></td>
                                         <td>{{ date('d F Y', strtotime($row->created_at)) }}</td>
                                         <td>
                                             @switch($row->status)

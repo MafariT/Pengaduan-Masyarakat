@@ -49,8 +49,8 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">Detail Pengaduan</h4>
-                                        
-        
+
+
                                         <div class="table-responsive">
                                             <table class="table table-striped table-nowrap mb-0">
                                                 <br>
@@ -111,7 +111,7 @@
                                                 <tr>
                                                     <td>Foto</td>
                                                     <td>
-                                                        <img src="{{url('avatar_complaint/',$complaint->photo)}}" width="500px">
+                                                        <img src="{{asset('storage/avatar_complaint',$complaint->photo)}}" width="500px">
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -126,18 +126,18 @@
                                                         <a href="javascript::void(0)" id="inline-username" data-type="text" data-pk="1" data-title="Enter username">{{$complaint->Response->response}}</a>
                                                     </td>
                                                 </tr>
-                                               
-                                                
-            
+
+
+
                                                 </tbody>
                                             </table>
                                         </div>
-                                    
-                                    
-                                    
-                                    
+
+
+
+
                                 </div>
-                                
+
                             </div>
 
                         </div>

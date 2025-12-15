@@ -17,7 +17,7 @@
       #page-topbar .navbar-header { min-height: 75px; }
       .navbar-brand-box .logo .logo-sm img,
       .navbar-brand-box .logo .logo-lg img {
-        height: 90px !important;   
+        height: 90px !important;
         width: auto !important;
       }
       .navbar-brand-box { padding: 6px 12px; }
@@ -77,7 +77,7 @@
           <div class="dropdown d-inline-block">
             <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <img class="rounded-circle header-profile-user" src="{{url('avatar_society/',Session::get('photo'))}}" alt="Header Avatar">
+              <img class="rounded-circle header-profile-user" src="{{asset('storage/avatar_society',Session::get('photo'))}}" alt="Header Avatar">
               <span class="d-none d-xl-inline-block ms-1" key="t-henry">{{Session::get('name')}}</span>
               <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
             </button>

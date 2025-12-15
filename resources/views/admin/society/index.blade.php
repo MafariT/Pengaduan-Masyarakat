@@ -9,7 +9,7 @@
 @section('content')
 <div class="page-content">
     <div class="container-fluid">
-        
+
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
@@ -42,7 +42,7 @@
                 <div class="card">
                     <div class="card-body">
 
-                        
+
 
                         <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
                             <thead>
@@ -66,7 +66,7 @@
                                     @if ($row->photo == NULL)
                                     <td><span class="badge rounded-pill bg-danger">Emtpy</span></td>
                                     @else
-                                    <td><img class="rounded-circle avatar-xs" src="{{ url('/avatar_society/'.$row->photo) }}"></td>
+                                    <td><img class="rounded-circle avatar-xs" src="{{ asset('storage/avatar_society'.$row->photo) }}"></td>
                                     @endif
                                     <td>{{$row->nik}}</td>
                                     <td>{{$row->username}}</td>
@@ -90,7 +90,7 @@
                 </div>
             </div>
         </div>
-        
+
     </div>
 </div>
 @endsection
@@ -99,8 +99,8 @@
 <script src="{{asset('assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
 <script src="{{asset('assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js')}}"></script>
 <script src="{{asset('assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js')}}"></script>
-<script src="{{asset('assets/js/pages/datatables.init.js')}}"></script>  
-<script src="{{asset('assets/libs/sweetalert2/sweetalert2.min.js')}}"></script> 
+<script src="{{asset('assets/js/pages/datatables.init.js')}}"></script>
+<script src="{{asset('assets/libs/sweetalert2/sweetalert2.min.js')}}"></script>
 <script>
     $('.btn-delete').click(function(){
         var society_id = $(this).attr('society-id');

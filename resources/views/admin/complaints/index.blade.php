@@ -10,7 +10,7 @@
 @section('content')
 <div class="page-content">
     <div class="container-fluid">
-        
+
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
@@ -24,7 +24,7 @@
                 </div>
             </div>
         </div>
-        
+
         <br>
         @if ($message = Session::get('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -56,7 +56,7 @@
                                 @foreach ($complaints as $row)
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
-                                    <td><img src="{{ url('avatar_complaint/'.$row->photo) }}" width="100"></td>
+                                    <td><img src="{{ asset('storage/avatar_complaint'.$row->photo) }}" width="100"></td>
                                     <td>{{$row->Society->name}}</td>
                                     <td>{{ date('d F Y H:i:s', strtotime($row->created_at)) }}</td>
 
@@ -77,7 +77,7 @@
                                         @case('finished')
                                             <td><span class="badge rounded-pill bg-success">Selesai</span></td>
                                             @break
-                                       
+
                                         @default
                                             <td><span class="badge rounded-pill bg-light text-dark">-</span></td>
                                     @endswitch
@@ -99,7 +99,7 @@
                 </div>
             </div>
         </div>
-        
+
     </div>
 </div>
 @endsection
@@ -110,7 +110,7 @@
 <script src="{{asset('assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js')}}"></script>
 <script src="{{asset('assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js')}}"></script>
 <script src="{{asset('assets/js/pages/datatables.init.js')}}"></script>
-<script src="{{asset('assets/libs/sweetalert2/sweetalert2.min.js')}}"></script> 
+<script src="{{asset('assets/libs/sweetalert2/sweetalert2.min.js')}}"></script>
 <script>
     $('.btn-delete').click(function(){
         var society_id = $(this).attr('society-id');

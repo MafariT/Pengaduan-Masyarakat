@@ -11,7 +11,7 @@
 @section('content')
 <div class="page-content">
     <div class="container-fluid">
-        
+
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
@@ -24,7 +24,7 @@
                 </div>
             </div>
         </div>
-        
+
         <br>
         @if ($message = Session::get('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -93,8 +93,8 @@
                                                         @case('finished')
                                                             <span class="badge rounded-pill bg-success">Selesai</span>
                                                             @break
-                                                    
-                                                           
+
+
                                                         @default
                                                             <span class="badge rounded-pill bg-light text-dark">-</span>
                                                     @endswitch
@@ -103,7 +103,7 @@
                                             <tr>
                                                 <td>Foto</td>
                                                 <td>
-                                                    <img src="{{ url('avatar_complaint/'.$complaint->photo) }}" width="500">
+                                                    <img src="{{ asset('storage/avatar_complaint'.$complaint->photo) }}" width="500">
                                                 </td>
                                             </tr>
                                             <tr>
@@ -143,7 +143,7 @@
                 </div>
             </form>
         </div>
-        
+
     </div>
 </div>
 @endsection
@@ -153,8 +153,8 @@
 <script src="{{asset('assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
 <script src="{{asset('assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js')}}"></script>
 <script src="{{asset('assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js')}}"></script>
-<script src="{{asset('assets/js/pages/datatables.init.js')}}"></script>  
-<script src="{{asset('assets/libs/sweetalert2/sweetalert2.min.js')}}"></script> 
+<script src="{{asset('assets/js/pages/datatables.init.js')}}"></script>
+<script src="{{asset('assets/libs/sweetalert2/sweetalert2.min.js')}}"></script>
 <script>
     $('.btn-delete').click(function(){
         var society_id = $(this).attr('society-id');
