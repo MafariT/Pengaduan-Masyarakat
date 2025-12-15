@@ -87,7 +87,7 @@
                 <div class="card-body">
                   <div class="user-info">
                     @if($complaint->society && $complaint->society->photo)
-                      <img src="{{ asset('storage/avatar_complaint/' . $complaint->society->photo) }}" class="user-avatar" alt="Foto Profil">
+                      <img src="{{ asset('storage/avatar_society/' . $complaint->society->photo) }}" class="user-avatar" alt="Foto Profil">
                     @else
                       <div class="user-avatar bg-secondary text-white d-flex align-items-center justify-content-center">
                         <i class="icofont-user"></i>
@@ -102,7 +102,7 @@
 
                   <div class="row mt-3">
                     <div class="col-md-3">
-                      <img src="{{ asset('storage/avatar_society/' . $complaint->photo) }}" class="img-fluid rounded" alt="Bukti Pengaduan">
+                      <img src="{{ asset('storage/avatar_complaint/' . $complaint->photo) }}" class="img-fluid rounded" alt="Bukti Pengaduan">
                     </div>
                     <div class="col-md-9">
                       <p class="text-muted"><i class="icofont-calendar"></i>
