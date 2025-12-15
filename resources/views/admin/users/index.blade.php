@@ -9,7 +9,7 @@
 @section('content')
 <div class="page-content">
     <div class="container-fluid">
-        
+
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
@@ -27,7 +27,7 @@
             <div class="col-6">
                 <a href="{{route('users.create')}}" class="btn btn-success waves-effect btn-label waves-light"><i class="bx bxs-plus-square label-icon"></i> Tambah</a>
             </div>
-            
+
         </div>
         <br>
         @if ($message = Session::get('success'))
@@ -43,7 +43,7 @@
                 <div class="card">
                     <div class="card-body">
 
-                        
+
 
                         <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
                             <thead>
@@ -65,9 +65,9 @@
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
                                     @if ($row->photo == NULL)
-                                    <td><span class="badge rounded-pill bg-danger">Emtpy</span></td>
+                                    <td><img class="rounded-circle avatar-xs" src="{{ 'https://i.pravatar.cc/150?u=' . Auth::id() }}"></td>
                                     @else
-                                    <td><img class="rounded-circle avatar-xs" src="{{ url('/avatar/'.$row->photo) }}"></td>
+                                    <td><img class="rounded-circle avatar-xs" src="{{ asset('storage/avatar/' . $row->photo) }}"></td>
                                     @endif
                                     <td>{{$row->officer_name}}</td>
                                     <td>{{$row->email}}</td>
@@ -76,7 +76,6 @@
                                     <td>
                                         <span class="badge rounded-pill bg-primary">{{$row->Level->name}}</span>
                                     </td>
-                                    
                                     <td>
                                         <a href="{{url('admin/users/edit/'.$row->id)}}" class="btn btn-danger btn-rounded waves-effect waves-light">
                                             <i class="bx bx-edit font-size-16 align-middle"></i>
@@ -94,7 +93,7 @@
                 </div>
             </div>
         </div>
-        
+
     </div>
 </div>
 @endsection
@@ -103,8 +102,8 @@
 <script src="{{asset('assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
 <script src="{{asset('assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js')}}"></script>
 <script src="{{asset('assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js')}}"></script>
-<script src="{{asset('assets/js/pages/datatables.init.js')}}"></script>  
-<script src="{{asset('assets/libs/sweetalert2/sweetalert2.min.js')}}"></script> 
+<script src="{{asset('assets/js/pages/datatables.init.js')}}"></script>
+<script src="{{asset('assets/libs/sweetalert2/sweetalert2.min.js')}}"></script>
 <script>
     $('.btn-delete').click(function(){
         var user_id = $(this).attr('user-id');

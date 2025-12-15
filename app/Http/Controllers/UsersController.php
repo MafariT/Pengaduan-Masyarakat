@@ -6,7 +6,7 @@ use App\Models\Level;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use File;
 
 class UsersController extends Controller
@@ -38,11 +38,10 @@ class UsersController extends Controller
         $user->username = $request->username;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
-        $photo = $request->file('photo');
-        $tujuan_upload = 'avatar';
-        $photo_name = time() . "_" . $photo->getClientOriginalName();
-        $photo->move($tujuan_upload, $photo_name);
-        $user->photo = $photo_name;
+       if ($request->hasFile('photo')) {
+            $path = $request->file('photo')->store('avatar', 'public');
+            $user->photo = basename($path);
+        }
         $user->phone_number = $request->phone_number;
         $user->level_id = $request->level_id;
         $user->save();
@@ -91,6 +90,14 @@ class UsersController extends Controller
             $photo->move($tujuan_upload, $photo_name);
             $user->photo = $photo_name;
         }
+        if ($request->hasFile('photo')) {
+            if ($user->photo && Storage::disk('public')->exists('avatar/' . $user->photo)) {
+                Storage::disk('public')->delete('avatar/' . $user->photo);
+            }
+            $path = $request->file('photo')->store('avatar', 'public');
+            $user->photo = basename($path);
+        }
+
         $user->phone_number = $request->phone_number;
         $user->level_id = $request->level_id;
         $result = $user->save();
