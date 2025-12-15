@@ -20,7 +20,7 @@ class UsersSeeder extends Seeder
         $init->username = "Administrator";
         $init->email = "admin@gmail.com";
         $init->phone_number = "088228740010";
-        $init->photo = "12";
+        $init->photo = null;
         $init->password = Hash::make("123456");
         $init->level_id = '1';
         $init->save();
@@ -30,7 +30,7 @@ class UsersSeeder extends Seeder
         $init->username = "Officer";
         $init->email = "officer@gmail.com";
         $init->phone_number = "088228740010";
-        $init->photo = "21";
+        $init->photo = null;
         $init->password = Hash::make("123456");
         $init->level_id = '2';
         $init->save();

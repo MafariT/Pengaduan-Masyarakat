@@ -117,7 +117,7 @@
         const swalWithBootstrapButtons = Swal.mixin({
             customClass: {
                 confirmButton: 'btn btn-success mt-2',
-                cancelButton: 'btn btn-danger'
+                cancelButton: 'btn btn-danger ms-2 mt-2'
             },
             buttonsStyling: false
         });
