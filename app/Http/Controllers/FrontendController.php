@@ -57,11 +57,10 @@ class FrontendController extends Controller
         $society->address = $request->address;
         $society->password = Hash::make($request->password);
 
-        $photo = $request->file('photo');
-        $tujuan_upload = 'avatar_society';
-        $photo_name = time() . "_" . $photo->getClientOriginalName();
-        $photo->move($tujuan_upload, $photo_name);
-        $society->photo = $photo_name;
+        if ($request->hasFile('photo')) {
+            $path = $request->file('photo')->store('avatar_society', 'public');
+            $society->photo = basename($path);
+        }
 
         $result = $society->save();
 
@@ -154,11 +153,10 @@ class FrontendController extends Controller
         $complaint = new Complaint;
 
         $complaint->contents_of_the_report = $request->contents_of_the_report;
-        $photo = $request->file('photo');
-        $tujuan_upload = 'avatar_complaint';
-        $photo_name = time() . "_" . $photo->getClientOriginalName();
-        $photo->move($tujuan_upload, $photo_name);
-        $complaint->photo = $photo_name;
+        if ($request->hasFile('photo')) {
+            $path = $request->file('photo')->store('avatar_complaint', 'public');
+            $complaint->photo = basename($path);
+        }
         $complaint->status = '0';
         $complaint->date_complaint = Date::now()->format('Y-m-d');
         $complaint->nik = $nik;
@@ -202,11 +200,11 @@ class FrontendController extends Controller
             'nik.digits' => 'NIK harus 16 angka.',
             'nik.numeric' => 'NIK hanya boleh berisi angka.',
         ]);
-        
+
         $nik = $request->nik;
         $data['complaints'] = Complaint::with('society')->where('nik', $nik)->get();
         $data['search_nik'] = $nik;
-        
+
         return view('frontend.search_result', $data);
     }
 

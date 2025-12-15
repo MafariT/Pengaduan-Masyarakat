@@ -16,9 +16,10 @@ class CreateSocietyTable extends Migration
         Schema::create('society', function (Blueprint $table) {
             $table->id();
             $table->string('nik');
-            $table->string('no_kk'); 
+            // $table->string('no_kk');
             $table->string('name');
             $table->string('username');
+            $table->string('email');
             $table->string('photo');
             $table->string('password');
             $table->string('phone_number');
