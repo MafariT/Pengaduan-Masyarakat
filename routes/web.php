@@ -71,6 +71,7 @@ Route::group(['middleware' => ['auth', 'checkRole:1,2'], 'prefix' => 'admin'], f
     Route::get('complaints/{id}', [ComplaintController::class, 'detail']);
     Route::get('complaints/show/{id}', [ResponseController::class, 'show']);
     Route::post('complaints/save/{id}', [ResponseController::class, 'save']);
+    Route::get('complaints/delete/{id}', [ComplaintController::class, 'destroy']);
 });
 
 

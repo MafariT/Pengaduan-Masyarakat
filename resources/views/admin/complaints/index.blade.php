@@ -131,7 +131,7 @@
             cancelButtonText: 'No, cancel!'
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location = "{{ url('admin/society/delete') }}/" + society_id;
+                window.location = "{{ url('admin/complaints/delete') }}/" + society_id;
             }
         });
     });
