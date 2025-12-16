@@ -13,7 +13,7 @@ class UsersController extends Controller
 {
     public function index()
     {
-        $data['users'] = User::paginate(3);
+        $data['users'] = User::all();
         return view('admin.users.index', $data);
     }
     public function create()
